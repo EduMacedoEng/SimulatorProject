@@ -13,6 +13,11 @@ void print_queue(queue<int> q) {
     cout << endl;
 }
 
+// método que seleciona o algoritmo de escalonamento a ser usado.
+void set_scheduling_algorithm() {
+
+}
+
 //método principal do escalonador, que implementa sua execução de acordo com o algoritmo de escalonamento selecionado. 
 void run (){
 
