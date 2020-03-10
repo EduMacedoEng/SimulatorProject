@@ -22,13 +22,16 @@ int main() {
 		auto start = chrono::system_clock::now();
 		state_id++;
 		cout << "Processo: " << process.process_id << " | Status: " << process.state[state_id] << "\n\n";
+		
 		int dec = 0;
 		while (dec < process.total_time) {
 			cout << "Tempo restante: " << process.remaining_time << endl;
 			dec++;
 			process.remaining_time--;
 			Sleep(1000);
+			//system("cls");
 		}
+
 		auto end = chrono::system_clock::now();
 		state_id++;
 		cout << "Processo: " << process.process_id << " | Status: " << process.state[state_id] << "\n\n";
