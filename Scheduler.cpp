@@ -61,3 +61,7 @@ class Scheduler {
     queue<int> core; //objeto que internamente representa os cores de processamento da CPU por meio de uma estrutura de dados.
     queue<int> ready_queue; //fila dos processos prontos para execução.
 }
+
+// pop(): remove elementos
+// push(): insere elementos
+// front(): pega o primeiro elemento da fila
