@@ -7,7 +7,6 @@
 
 using namespace std;
 
-
 class Scheduler {
 public:
 	queue<int> core;
