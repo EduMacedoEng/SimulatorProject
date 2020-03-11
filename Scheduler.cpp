@@ -14,8 +14,14 @@ void print_queue(queue<int> q) {
 }
 
 // método que seleciona o algoritmo de escalonamento a ser usado.
-void set_scheduling_algorithm() {
-
+void set_scheduling_algorithm(int number, queue<int> core, queue<int> ready_queue) {
+    if (number == 1){
+        fifo_scheduler(core, ready_queue);
+    } else if (number == 2) {
+        shortest_job_first();
+    } else if (number == 3) {
+        round_robin();
+    }
 }
 
 //método principal do escalonador, que implementa sua execução de acordo com o algoritmo de escalonamento selecionado. 
