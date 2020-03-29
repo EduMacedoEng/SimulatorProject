@@ -13,8 +13,8 @@ class Process
 public:
 	//Construtores
 	Process();
-	Process(int total_time,int remaining_time,int process_id, int quantum);
-	Process(int total_time, int remaining_time, int process_id);
+	//Process(int total_time,int remaining_time,int process_id, int quantum);
+	//Process(int total_time, int remaining_time, int process_id);
 	~Process();
 
 	// Identificador do process, inteiro sequencial começando em zero
@@ -35,7 +35,6 @@ public:
 	// Método que gera randomicamente números em um intervalo de tempo
 	int randRange(int low, int high);
 
-	//fim main
 	// Mostra o processo
 	void showProcess();
 };

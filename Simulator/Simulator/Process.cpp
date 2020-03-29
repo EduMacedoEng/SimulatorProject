@@ -13,18 +13,22 @@ Process::~Process()
 
 }
 
-Process::Process(int total_time, int remaining_time, int process_id) {
+/*Process::Process(int total_time, int remaining_time, int process_id) {
 	this->process_id = process_id;
 	this->remaining_time = remaining_time;
 	this->total_time = total_time;
-}
+}*/
 
-Process::Process(int total_time, int remaining_time, int process_id, int quantum) {
+
+
+/*Process::Process(int total_time, int remaining_time, int process_id, int quantum) {
 	this->process_id = process_id;
 	this->remaining_time = remaining_time;
 	this->total_time = total_time;
 	this->quantum = quantum;
-}
+}*/
+
+
 
 void Process::showProcess() {
 	if (quantum != NULL) {

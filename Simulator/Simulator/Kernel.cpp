@@ -16,7 +16,7 @@ Kernel::~Kernel()
 Process process;
 
 // Método que imprime na tela os metadados da Matriz
-void print_matriz(int Matriz[64][6], int qtd_processos) {
+void print_matriz(int** Matriz, int qtd_processos) {
 
     for (int i = 0; i < qtd_processos; i++) {
 
@@ -32,30 +32,25 @@ void print_matriz(int Matriz[64][6], int qtd_processos) {
 
 }
 
+/*void printMatriz(int** matriz, int qtd_process) {
+    for (int i = 0; i < qtd_process; i++)
+    {
+        cout << matriz[i][0] << "\t\t\t"
+            << matriz[i][1] << "\t\t\t"
+            << matriz[i][2] << "\t\t\t"
+            << matriz[i][3] << endl;
+    }
+}*/
+
 // Método que cria um processo e insere na tabela de processos.
-void Kernel::create_process(queue<int> ready_queue, int qtd_process) {
+int** Kernel::create_process(int** matriz, int qtd_process) {
 
     int status = 0;
 
-    for (int i = 0; i < qtd_process; i++) {
+    Kernel::Process_Control_Table = matriz;
 
-        process.process_id = i + 1;
-
-        Kernel::Process_Control_Table[i][0] = process.process_id;
-
-        process.total_time = process.randRange(1, 20);
-
-        Kernel::Process_Control_Table[i][1] = process.total_time;
-
-        Kernel::Process_Control_Table[i][2] = status;
-
-        process.remaining_time = process.total_time;
-
-        Kernel::Process_Control_Table[i][3] = process.remaining_time;
-
-    }
-
-    print_matriz(Process_Control_Table, qtd_process);
+    return Kernel::Process_Control_Table;
+    //printMatriz(Process_Control_Table, qtd_process);
 
 }
 

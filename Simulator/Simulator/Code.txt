@@ -1,4 +1,4 @@
-#include<iostream>
+﻿#include<iostream>
 #include <stdio.h>
 #include <queue>
 #include <chrono>
@@ -9,12 +9,12 @@ using namespace std;
 class Process {       // The class
 
 public:             // Access specifier
-	int process_id = 0; // Identificador do processo, inteiro sequencial come�ando em zero. 
+	int process_id = 0; // Identificador do processo, inteiro sequencial começando em zero. 
 	int bt; // Burst time variable
 	int art; // Arrival time variable
-	int total_time; //  tempo total de execu��o, aleat�rio dentro do intervalo (1, 20) segundos.
+	int total_time; //  tempo total de execução, aleatório dentro do intervalo (1, 20) segundos.
 	string state[3] = { "Ready", "Running", "Terminated" }; // 0 = Ready ; 1 = Running ; 2 = Terminated
-	int remaining_time; // Tempo de execu��o restante em segundos.
+	int remaining_time; // Tempo de execução restante em segundos.
 	int quantum;
 
 	int randRange(int low, int high) {
@@ -156,9 +156,9 @@ ________________________________________________________________________________
    int numTests;
    cout << "Enter the number of test scores:";
    cin >> numTests;        
-   int * iPtr = new int[numTests];           //colocamos um ponteiro no inicio da mem�ria din�mica
+   int * iPtr = new int[numTests];           //colocamos um ponteiro no inicio da memória dinâmica
 
-   for (int i = 0; i < numTests; i++) //Podemos preecher o espa�o de mem�ria da forma que quisermos
+   for (int i = 0; i < numTests; i++) //Podemos preecher o espaço de memória da forma que quisermos
    {
       cout << "Enter test score #" << i + 1 << " : ";
       cin >> iPtr[i];
@@ -169,3 +169,100 @@ ________________________________________________________________________________
    delete iPtr;
    return 0;
  }
+ __________________________________________________________________________________________________________________________________
+
+ O simulador cria o Kernel e o Kernel cria o scheduler.
+
+Quem cria o escalonador é o Kernel
+Scheduling_algorith é uma variavel que recebe um inteiro indicando qual algoritmo usar.
+
+Create_random_process -> Batch_process -> Create_process
+
+CPU vai ter um vetor de cores (no caso da CPU é bom usar um vetor, pois a posição relativa entre eles é fixa)
+
+Dentro da classe CPU eu vou ter o vetor de cores e instancio ele dentro do Kernel
+
+Quando eu falo vector é um array
+
+Passar uma referencia do vector(array) de cores para dentro do Scheduler
+
+Cada run pode ser uma thread
+
+
+___________________________________________________________________________________________________________________________________
+
+Implementar um simulador capaz de simular várias entidades e componentes de um
+sistema operacional. Cada componente deve ter uma classe equivalente implementada
+em C++:
+
+1. simulator: classe principal do simulador, onde é implementada a função main. Toda
+simulação deve começar a execução por essa classe, uma vez que seus parâmetros
+sejam definidos:
+	a. kernel: variável interna que representa o kernel do sistema operacional (ver item 2).
+	b. scheduling_algorithm: algoritmo de escalonamento a ser usado, deve ser
+	selecionado e setado a partir dessa classe.
+	c. run: inicia a execução da simulação, com a criação de um objeto kernel e sua
+	execução.
+	d. create_random_process: método que implementa a inserção dinâmica de um
+	processo; o simulador deve ter um método para criação dinâmica e aleatória de
+	um novo processo.
+	e. batch_process_init: método usado para estabelecer uma quantidade inicial de
+	processos e sua criação antes do início da simulação.
+	f. processor_cores_number : variável interna que define o número de cores de
+	processamento, definido dentro do intervalo (1, 64).
+	g. quantum: variável interna com o tempo de execução em segundos de cada
+	processo no algoritmo Round Robin. Dentro do intervalo (2, 20) segundos.
+
+
+2. kernel: classe que implementa as chamadas de sistema e controla os componentes de
+gerenciamento de recursos, como o escalonador. Implementa as seguintes entidades e
+métodos:
+	a. run: inicia a execução do kernel.
+	b. process_control_table: estrutura de dados que contém todos os processos e
+	seus metadados.
+	c. create_process: método que cria um processo e insere na tabela de processos.
+	d. kill_process: método que destrói um processo e remove da tabela de
+	processos.
+	e. run_process: método que inicializa a execução de um processo pelo
+	escalonador de processos.
+	f. cpu: classe que representa a CPU e seus cores de processamento.
+
+3. process: classe que representa um processo e seus atributos, mais especificamente:
+	a. process_id: identificador do processo, inteiro sequencial começando em zero.
+	b. total_time: tempo total de execução, aleatório dentro do intervalo (1, 20)
+	segundos.
+	c. state: estado do processo: "ready", "running" ou "terminated".
+	d. remaining_time: tempo de execução restante em segundos.
+
+
+4. scheduler: classe que implementa o escalonador de processos, suas estruturas de
+dados e algoritmos:
+	a. cores: objeto que internamente representa os cores de processamento da CPU
+	por meio de uma estrutura de dados.
+	b. ready_queue: fila dos processos prontos para execução.
+	c. set_scheduling_algorithm: método que seleciona o algoritmo de
+	escalonamento a ser usado.
+	d. run: método principal do escalonador, que implementa sua execução de acordo
+	com o algoritmo de escalonamento selecionado.
+	e. insert_process: método público usado para inserir um novo processo na fila de
+	aptos.
+	f. schedule_process: método usado para escalonar um processo e iniciar sua
+	execução num core de processamento.
+	g. deschedule_process: método usado para remover um processo de um core de
+	processamento.
+	h. fifo_scheduler: método que implementa o algoritmo de escalonamento FIFO.
+	i. shortest_job_first: método que implementa o algoritmo de escalonamento SJF.
+	j. round_robin: método que implementa o algoritmo de escalonamento Round
+	Robin.
+
+
+5. Funcionamento:
+	● Uma vez que seja estabelecido o número de cores de processamento, o número de
+	processos iniciais e o algoritmo de escalonamento, o sistema está pronto para iniciar.
+	● Inicialmente são criados N processos com o estado "pronto", onde cada processo tem
+	um identificador sequencial e um tempo de execução total.
+	● Os processos são inseridos na fila de Aptos de acordo com o algoritmo escolhido, o
+	mesmo acontece para os processos inseridos na lista de processos em execução (cores
+	de processamento). Além disso, o simulador cria aleatoriamente novos processos em
+	tempo de execução. Estes novos processos serão tratados de acordo com o algoritmo
+	de escalonamento em execução.

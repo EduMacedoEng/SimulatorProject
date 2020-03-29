@@ -1,3 +1,2 @@
 ﻿  Simulator.cpp
-C:\Users\leonardofernandes\source\repos\Simulator\Simulator\Simulator.cpp(28,12): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
   Simulator.vcxproj -> C:\Users\leonardofernandes\source\repos\Simulator\Debug\Simulator.exe

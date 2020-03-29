@@ -19,10 +19,10 @@ public:
 	void run();
 
 	// Estrutura de dados que contém todos os processos e seus metadados.
-	int Process_Control_Table[64][6];
+	int** Process_Control_Table;
 
 	// Método que cria um processo e insere na tabela de processos.
-	void create_process(queue<int> ready_queue, int qtd_process);
+	int** create_process(int** matriz, int qtd_process);
 
 	// Método que destrói um processo e remove da tabela de processos.
 	void kill_process(queue<int> ready_queue);
