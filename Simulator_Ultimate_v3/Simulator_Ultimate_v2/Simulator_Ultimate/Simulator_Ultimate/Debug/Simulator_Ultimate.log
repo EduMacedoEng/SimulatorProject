@@ -1,0 +1,7 @@
+﻿  Simulator.cpp
+C:\Users\Developer\Downloads\Simulator_Ultimate_v3\Simulator_Ultimate_v2\Simulator_Ultimate\Simulator_Ultimate\Scheduler.h(221,21): warning C4018: '<=': incompatibilidade de signed/unsigned
+C:\Users\Developer\Downloads\Simulator_Ultimate_v3\Simulator_Ultimate_v2\Simulator_Ultimate\Simulator_Ultimate\Scheduler.h(373,22): warning C4018: '<': incompatibilidade de signed/unsigned
+C:\Users\Developer\Downloads\Simulator_Ultimate_v3\Simulator_Ultimate_v2\Simulator_Ultimate\Simulator_Ultimate\Scheduler.h(429,22): warning C4018: '<': incompatibilidade de signed/unsigned
+C:\Users\Developer\Downloads\Simulator_Ultimate_v3\Simulator_Ultimate_v2\Simulator_Ultimate\Simulator_Ultimate\Scheduler.h(487,22): warning C4018: '<': incompatibilidade de signed/unsigned
+C:\Users\Developer\Downloads\Simulator_Ultimate_v3\Simulator_Ultimate_v2\Simulator_Ultimate\Simulator_Ultimate\Simulator.cpp(14,15): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
+  Simulator_Ultimate.vcxproj -> C:\Users\Developer\Downloads\Simulator_Ultimate_v3\Simulator_Ultimate_v2\Simulator_Ultimate\Debug\Simulator_Ultimate.exe

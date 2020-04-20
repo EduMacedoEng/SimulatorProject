@@ -1,0 +1,110 @@
+int main() {
+    /*Simulator* sim = new Simulator();
+    Process* p = new Process();
+    Kernel* k = new Kernel();
+    Scheduler* s = new Scheduler();
+
+    list <Process*> processos;
+
+    int qtd_process = 0;
+    cout << "Qtd processos: ";
+    cin >> qtd_process;
+    cout << "Qtd cores: ";
+    cin >> sim->processor_cores_number;
+
+    processos = sim->batch_process_init(qtd_process);
+    p->printList(processos);*/
+    
+    
+    Simulator* sim = new Simulator();
+
+    list<Process*> processos;
+    list<Process*>::iterator it = processos.begin();
+    queue<Process*> ready_queue;
+
+    int qtd_process = 0;
+
+    cout << "Qtd processos: ";
+    cin >> qtd_process;
+
+    //int tam = 
+    sim->batch_process_init(qtd_process);
+    
+
+    /*k->create_process();
+    cout << "\n\n";
+    k->create_process();
+    cout << "\n\n";
+    k->create_process();
+    cout << "\n\n";*/
+
+    //int tam = k->process_control_table.size();
+    //cout << tam << endl;
+    int tam2 = sim->k->process_control_table.size();
+    cout << endl <<  "Quantidade de processos criados:" <<  tam2;
+   // k->kill_process(2);
+    //k->create_process();
+
+
+    _getch(); 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+        Process* p;
+        list <Process*> cores;
+        list <Process*>::iterator it;
+
+        queue<Process*> process;
+        queue<Process*> process_terminated;
+
+        cores = cores2;
+        process = processos;
+
+        resumo(process, process_terminated, cores, 0);
+
+        int loop = 0;
+        int t = 0;
+        int aux = 0;
+        bool tp = true;
+        while (tp) {
+            if (!process.empty() && process.front()->st == 0) {
+                if (cores.size() < sim->processor_cores_number) {
+                    cores = schedule_process_1(process, cores, it);
+                    process = schedule_process_2(process, cores, it);
+                }
+            }
+
+            for (list<Process*>::iterator it = cores.begin(); it != cores.end(); it++) {
+                if ((*it)->remaining_time > 0) {
+                    (*it)->setSt(2);
+                    (*it)->remaining_time--;
+                }
+                else {
+                    (*it)->setSt(2);
+                }
+            }
+
+            if (!cores.empty()) {
+                if (cores.front()->remaining_time == 0) {
+                    process_terminated = deschedule_process_2(process_terminated, cores);
+                    cores = deschedule_process_1(process_terminated, cores);
+                }
+            }
+            Sleep(1000); //1000000 microsegundos equivale a 1 segundo
+            resumo(process, process_terminated, cores, aux + 1);
+            aux++;
+            if (cores.empty() && process.empty()) {
+                tp = false;
+            }
+        }
